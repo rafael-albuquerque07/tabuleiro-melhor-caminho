@@ -386,32 +386,32 @@ def executar_percurso_manual(tabuleiro, posicao_inicial, caminho_predefinido, si
     
     print(f"\nVocê percorreu um total de {len(posicoes_percorridas)-1} passos.")
     
-    # Agora vamos mostrar o melhor caminho do A*
+    # Agora vamos mostrar o caminho ótimo do A*
     tabuleiro_limpo = criar_tabuleiro()
     caminho_otimo = astar(tabuleiro_limpo, posicao_inicial, destino)
     
     if caminho_otimo:
-        print("\nCalculando o melhor caminho usando o algoritmo A*...")
+        print("\nCalculando o caminho ótimo usando o algoritmo A*...")
         
-        # Cria um novo tabuleiro para mostrar o melhor caminho
+        # Cria um novo tabuleiro para mostrar o caminho ótimo
         tabuleiro_otimo = [linha[:] for linha in tabuleiro_limpo]
         
-        # Marca as posições do melhor caminho
+        # Marca as posições do caminho ótimo
         for pos in caminho_otimo:
             tabuleiro_otimo[pos[0]][pos[1]] = '*'
         
-        print("\nO algoritmo A* encontrou o seguinte melhor caminho:")
+        print("\nO algoritmo A* encontrou o seguinte caminho ótimo:")
         mostrar_tabuleiro(tabuleiro_otimo)
         
-        print(f"\nMelhor caminho: {len(caminho_otimo)-1} passos")
+        print(f"\nCaminho ótimo: {len(caminho_otimo)-1} passos")
         print(f"Seu caminho: {len(posicoes_percorridas)-1} passos")
         
         if len(posicoes_percorridas)-1 > len(caminho_otimo)-1:
             print("\nSeu caminho não foi o mais eficiente.")
         else:
-            print("\nParabéns! Você encontrou o melhor caminho!")
+            print("\nParabéns! Você encontrou o caminho ótimo!")
     else:
-        print("\nNão foi possível encontrar um melhor caminho usando o algoritmo A*.")
+        print("\nNão foi possível encontrar um caminho ótimo usando o algoritmo A*.")
 
 def executar_percurso(tabuleiro, caminho, simbolo, destino=None):
     """
